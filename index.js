@@ -1,32 +1,33 @@
-const pokeapiUrl = "https://pokeapi.co/api/v2/pokemon"
-const genOne = "?limit=151"
+import { fetchGenerationOne, getSprite } from "./fetchAPI.js"
 
-async function fetchGenerationOne() {
-    try{
-        const request = await fetch(pokeapiUrl + genOne) 
-        console.log(request.ok)     
 
-        if(!request.ok){
+const pokeFolder = document.querySelector("#pokelist")
+const pokeImage = document.querySelector("#image")
 
-            throw new Error("Noe faen kjeeeddelig")
+const pokemon =  await fetchGenerationOne()
 
-             
-    
-        }
+console.log("list of pokemon:", pokemon)
 
-        const result = await request.json()
+if(pokemon.length > 0){
+    for( let i = 0; i <pokemon.length; i++){
 
-        const pokemon = result.results
+        let pokemonURL = pokemon[i].url
 
-        console.log(pokemon[100])  
+        let sprite = await getSprite(pokemonURL)
 
-       
-    
-        
-    }catch(error){
-        console.log("ERROR")
+        pokeFolder.innerHTML += `<a class="pokecard" href="./pokemon/${pokemon[i].name}">
+        <span class="index">${i+1} </span>
+                                    <img src="${sprite}" alt="${pokemon[i].name}">
+                                    <p>${pokemon[i].name}</p>
+                                </a>`  
 
     }
 }
 
-fetchGenerationOne()
+
+
+
+
+
+
+
