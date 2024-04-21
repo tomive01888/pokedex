@@ -1,1 +1,1 @@
-let name = "hallo der"
+let name = "hallo der hvem er dette?"j
