@@ -5,17 +5,19 @@ const pokemon =  await fetchGenerationOne()
 
 console.log("list of pokemon:", pokemon)
 
-if(pokemon.length > 0){
-    for( let i = 0; i <pokemon.length; i++){
+const allPokemons = pokemon.results
 
-        let pokemonURL = pokemon[i].url
+if(allPokemons.length > 0){
+    for( let i = 0; i <allPokemons.length; i++){
+
+        let pokemonURL = allPokemons[i].url
 
         let sprite = await getSprite(pokemonURL)
 
-        pokeFolder.innerHTML += `<a class="pokecard" href="./pokemon/index.html?pokemon=${pokemon[i].name}&index=${i}">
+        pokeFolder.innerHTML += `<a class="pokecard" href="./pokemon/index.html?pokemon=${allPokemons[i].name}&index=${i}">
                                     <span class="index">${i+1} </span>
-                                    <img src="${sprite}" alt="${pokemon[i].name}">
-                                    <p>${pokemon[i].name}</p>
+                                    <img src="${sprite}" alt="${allPokemons[i].name}">
+                                    <p>${allPokemons[i].name}</p>
                                 </a>`  
 
     }
