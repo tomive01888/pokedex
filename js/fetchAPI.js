@@ -7,7 +7,7 @@ export async function fetchGenerationOne() {
         const request = await fetch(pokeapiUrl + genOne) 
 
         if(!request.ok){
-            throw new Error("Noe faen kjeeeddelig")
+            throw new Error("Failed to fetch pokemon from API")
         }
 
         const result = await request.json()
@@ -29,7 +29,7 @@ export async function getSprite(url){
         const spriteReq = await fetch(url)
 
         if(!spriteReq.ok){
-            throw new Error("Noe faen kjeeeddelig")
+            throw new Error("Failed to fetch sprite")
         }
 
         const resultos = await spriteReq.json()
