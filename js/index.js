@@ -1,4 +1,4 @@
-import { fetchGenerationOne, getSprite } from "./fetchAPI.js"
+import { fetchGenerationOne, getCardInfo } from "./fetchAPI.js"
 
 const pokeFolder = document.querySelector("#pokelist")
 const pokemon =  await fetchGenerationOne()
@@ -12,7 +12,9 @@ if(allPokemons.length > 0){
 
         let pokemonURL = allPokemons[i].url
 
-        let sprite = await getSprite(pokemonURL)
+        const {sprite, type} = await getCardInfo(pokemonURL)
+
+        // console.log(sprite)
 
         pokeFolder.innerHTML += `<a class="pokecard" href="./pokemon/index.html?pokemon=${allPokemons[i].name}&index=${i}">
                                     <span class="index">${i+1} </span>

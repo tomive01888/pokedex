@@ -29,20 +29,23 @@ export async function fetchGenerationOne(specific = null) {
 }
 
 
-export async function getSprite(url){    
+export async function getCardInfo(url){    
 
     try{
-        const spriteReq = await fetch(url)
+        const request = await fetch(url)
 
-        if(!spriteReq.ok){
+        if(!request.ok){
             throw new Error("Failed to fetch sprite")
         }
 
-        const resultos = await spriteReq.json()
+        const result = await request.json()
 
-        // console.log(resultos)
+        // console.log(result)
 
-        return resultos.sprites.other["official-artwork"].front_default
+        return {
+            sprite: result.sprites.other["official-artwork"].front_default,
+            type: result.types
+        }
         
     
     }catch(error){
