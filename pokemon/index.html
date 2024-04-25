@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokédex Generation 1</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../index.css" />
   </head>
   <body>
@@ -14,13 +14,60 @@
 
     <main>
       <div class="container">
-        <h1></h1>
-        <div id="pokedetails"></div>
+        <div>
+          <h1 class="poketitle"></h1>
+          <aside class="pointerLeft"><button class="leftPointer">&#x276C;</button></aside>
+          <aside class="pointerRight"><button class="rightPointer">&#x276D;</button></aside>
+        </div>
+
+        <div id="pokedetails">
+          <div class="image-container">
+            <img id="image2" class="image" src="" alt="" />
+            <img id="image1" class="image" src="" alt="" />
+          </div>
+
+          <div class="stats">
+            <div>
+              <p>Health</p>
+              <div class="statbar"><div id="hp"></div></div>
+              <p class="hp"></p>
+            </div>
+
+            <div>
+              <p>Attack</p>
+              <div class="statbar"><div id="attack"></div></div>
+              <p class="attack"></p>
+            </div>
+
+            <div>
+              <p>Defense</p>
+              <div class="statbar"><div id="defense"></div></div>
+              <p class="defense"></p>
+            </div>
+
+            <div>
+              <p>Sp.Atk</p>
+              <div class="statbar"><div id="special-attack"></div></div>
+              <p class="special-attack"></p>
+            </div>
+
+            <div>
+              <p>Sp.Def</p>
+              <div class="statbar"><div id="special-defense"></div></div>
+              <p class="special-defense"></p>
+            </div>
+
+            <div>
+              <p>Speed</p>
+              <div class="statbar"><div id="speed"></div></div>
+              <p class="speed"></p>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
 
-    <footer>
-    </footer>
+    <footer></footer>
 
     <script src="../js/details.js" type="module"></script>
   </body>
