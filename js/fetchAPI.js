@@ -41,7 +41,7 @@ export async function getCardInfo(url){
         const result = await request.json()
 
         // console.log(result)
-
+        
         return {
             sprite: result.sprites.other["official-artwork"].front_default,
             type: result.types

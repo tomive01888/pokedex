@@ -14,7 +14,7 @@ if(allPokemons.length > 0){
 
         const {sprite, type} = await getCardInfo(pokemonURL)
 
-        // console.log(sprite)
+        console.log("res", type)
 
         pokeFolder.innerHTML += `<a class="pokecard" href="./pokemon/index.html?pokemon=${allPokemons[i].name}&index=${i}">
                                     <span class="index">${i+1} </span>
