@@ -16,7 +16,7 @@ if(allPokemons.length > 0){
 
         console.log("res", type)
 
-        pokeFolder.innerHTML += `<a class="pokecard" href="./pokemon/index.html?pokemon=${allPokemons[i].name}&index=${i}">
+        pokeFolder.innerHTML += `<a class="pokecard" href="./pokemon/index.html?pokeindex=${i}">
                                     <span class="index">${i+1} </span>
                                     <img src="${sprite}" alt="${allPokemons[i].name}">
                                     <p>${allPokemons[i].name}</p>
