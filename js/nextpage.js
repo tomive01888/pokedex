@@ -1,3 +1,0 @@
-
-
-const leftButton = document.getElementsByClassName('')

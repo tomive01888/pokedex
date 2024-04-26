@@ -10,6 +10,25 @@ const image1 = document.getElementById("image1")
 const image2 = document.getElementById("image2")
 // console.log(index)
 
+const previousPoke = document.querySelector('.leftPointer')
+const prev = document.getElementById('previous')
+previousPoke.addEventListener('click', gotoPrev)
+function gotoPrev(){
+    prev.href = `./index.html?pokeindex=${pokeindex-1}`;
+
+};
+const nextPoke = document.querySelector('.rightPointer')
+const next = document.getElementById('next')
+nextPoke.addEventListener('click', gotoNext)
+function gotoNext(){
+    let pokeindexNumber = parseInt(pokeindex);
+    next.href = `./index.html?pokeindex=${pokeindexNumber + 1}`;
+     
+};
+
+
+
+
 if(pokeindex){
 
     const details = await fetchGenerationOne(pokeindex)
@@ -26,27 +45,63 @@ if(pokeindex){
     details.stats.forEach(el => {
 
         let domEl = document.querySelector(`.${el.stat.name}`)
-
-
-        let statPower = document.getElementById(`${el.stat.name}`)
-
-        console.log(statPower)
-
         domEl.textContent = el.base_stat
 
-        statPower.style.width = `${el.base_stat}`+ "px";
-        
-    }); 
-
-
-
-
-
-
-
-    
+        let statPower = document.getElementById(`${el.stat.name}`)
+        statPower.style.width = `${el.base_stat}`+ "px";        
+    });
 }
 
 
+const stopLeft = document.getElementById("stopPrev")
+const stopRight = document.getElementById("stopNext")
+const imgPrev = document.querySelector(".indexPrev")
+const imgNext = document.querySelector(".indexNext")
+const prevNumber = document.querySelector("#prevId")
+const nextNumber = document.querySelector("#nextId")
+
+if(pokeindex === "1"){
+
+    previousPoke.style.display = "none"
+    stopLeft.classList.add("hidden") 
+
+    let pokenextNumber = parseInt(pokeindex);
+    const nextId = await fetchGenerationOne(pokenextNumber + 1)
+    
+    imgNext.src = nextId.sprites.other["official-artwork"].front_default
+    imgNext.alt = nextId.name
+
+    const nextNumber = document.querySelector("#nextId")
+    nextNumber.textContent = "#"+nextId.id
+
+};
+
+if(pokeindex === "151"){
+    const prevId = await fetchGenerationOne(pokeindex - 1)
+    imgPrev.src = prevId.sprites.other["official-artwork"].front_default
+    imgPrev.alt = prevId.name
+    prevNumber.textContent = "#"+prevId.id
+
+    nextPoke.style.display = "none"
+    stopRight.classList.add("hidden")
+}
+
+if(pokeindex > 1 && pokeindex < 151){
+
+    const prevId = await fetchGenerationOne(pokeindex - 1)
+    imgPrev.src = prevId.sprites.other["official-artwork"].front_default
+    imgPrev.alt = prevId.name
+
+    prevNumber.textContent = "#"+prevId.id
+
+    let pokenextNumber = parseInt(pokeindex);
+    const nextId = await fetchGenerationOne(pokenextNumber + 1)
+
+    imgNext.src = nextId.sprites.other["official-artwork"].front_default
+    imgNext.alt = nextId.name
+
+    nextNumber.textContent = "#"+nextId.id
 
 
+
+}

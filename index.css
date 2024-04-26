@@ -11,13 +11,21 @@ body {
     font-weight: 400;
     font-style: normal;
     background-color: #08549b;
+    position: relative;
+    min-height: 200vh;
+
 }
 
-.container {
-    width: 100%;
-    max-width: 100rem;
-    margin: 0 auto;
+header {
+    height: 100px;
 }
+
+main {
+    width: 100%;
+    position: relative;
+
+}
+
 
 h1 {
     margin: 1rem 0 2rem 0;
@@ -25,9 +33,13 @@ h1 {
 }
 
 #pokelist {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
+    /* display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px; */
     width: 100%;
 
 }
@@ -35,8 +47,8 @@ h1 {
 .pokecard {
     background-color: rgb(245, 243, 243);
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 160px;
+    height: 220px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -13,58 +13,81 @@
     <header></header>
 
     <main>
-      <div class="container">
+      <a href="" id="previous"><button type="button" class="leftPointer">&#x276C;</button></a>
+      <a href="" id="next"><button type="button" class="rightPointer">&#x276D;</button></a>
+      <section id="allWrapper">
         <div>
+          <div class="smaller-container" id="stopPrev">
+            <p id="prevId"></p>
+            <img class="indexPrev" src="" alt="" />
+            <div class="fake-text"></div>
+            <div class="fake-text"></div>
+            <div class="fake-text"></div>
+            <div class="fake-text"></div>
+            <div class="fake-text"></div>
+          </div>
+        </div>
+
+        <div class="container">
           <h1 class="poketitle"></h1>
-          <aside class="pointerLeft"><button class="leftPointer">&#x276C;</button></aside>
-          <aside class="pointerRight"><button class="rightPointer">&#x276D;</button></aside>
-        </div>
 
-        <div id="pokedetails">
-          <div class="image-container">
-            <img id="image2" class="image" src="" alt="" />
-            <img id="image1" class="image" src="" alt="" />
-          </div>
-
-          <div class="stats">
-            <div>
-              <p>Health</p>
-              <div class="statbar"><div id="hp"></div></div>
-              <p class="hp"></p>
+          <div id="pokedetails">
+            <div class="image-container">
+              <img id="image2" class="image" src="" alt="" />
+              <img id="image1" class="image" src="" alt="" />
             </div>
 
-            <div>
-              <p>Attack</p>
-              <div class="statbar"><div id="attack"></div></div>
-              <p class="attack"></p>
-            </div>
+            <div class="stat-container">
+              <div class="stats">
+                <div class="statbar"><div id="hp"></div></div>
+                <p class="hp"></p>
+                <p>Health</p>
+              </div>
 
-            <div>
-              <p>Defense</p>
-              <div class="statbar"><div id="defense"></div></div>
-              <p class="defense"></p>
-            </div>
+              <div class="stats">
+                <div class="statbar"><div id="attack"></div></div>
+                <p class="attack"></p>
+                <p>Attack</p>
+              </div>
 
-            <div>
-              <p>Sp.Atk</p>
-              <div class="statbar"><div id="special-attack"></div></div>
-              <p class="special-attack"></p>
-            </div>
+              <div class="stats">
+                <div class="statbar"><div id="defense"></div></div>
+                <p class="defense"></p>
+                <p>Defense</p>
+              </div>
 
-            <div>
-              <p>Sp.Def</p>
-              <div class="statbar"><div id="special-defense"></div></div>
-              <p class="special-defense"></p>
-            </div>
+              <div class="stats">
+                <div class="statbar"><div id="special-attack"></div></div>
+                <p class="special-attack"></p>
+                <p>Sp.Atk</p>
+              </div>
 
-            <div>
-              <p>Speed</p>
-              <div class="statbar"><div id="speed"></div></div>
-              <p class="speed"></p>
+              <div class="stats">
+                <div class="statbar"><div id="special-defense"></div></div>
+                <p class="special-defense"></p>
+                <p>Sp.Def</p>
+              </div>
+
+              <div class="stats">
+                <div class="statbar"><div id="speed"></div></div>
+                <p class="speed"></p>
+                <p>Speed</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
+        <div class="smaller-container" id="stopNext">
+          <p id="nextId"></p>
+
+          <img class="indexNext" src="" alt="" />
+          <div class="fake-text"></div>
+          <div class="fake-text"></div>
+          <div class="fake-text"></div>
+          <div class="fake-text"></div>
+          <div class="fake-text"></div>
+        </div>
+      </section>
     </main>
 
     <footer></footer>
