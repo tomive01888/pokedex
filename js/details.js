@@ -8,7 +8,9 @@ const pokeindex = urlSearchParams.get("pokeindex")
 
 const image1 = document.getElementById("image1")
 const image2 = document.getElementById("image2")
-// console.log(index)
+
+const type = document.querySelector(".type")
+const audio = document.querySelector(".audio")
 
 const previousPoke = document.querySelector('.leftPointer')
 const prev = document.getElementById('previous')
@@ -25,9 +27,6 @@ function gotoNext(){
     next.href = `./index.html?pokeindex=${pokeindexNumber + 1}`;
      
 };
-
-
-
 
 if(pokeindex){
 
@@ -50,6 +49,22 @@ if(pokeindex){
         let statPower = document.getElementById(`${el.stat.name}`)
         statPower.style.width = `${el.base_stat}`+ "px";        
     });
+
+    type.innerHTML = `
+    <img src="../assets/types/${details.types[0].type.name}.ico" alt="">
+    
+    `;
+    if(details.types.length === 2){
+        type.innerHTML = `
+        <img src="../assets/types/${details.types[0].type.name}.ico" alt="">
+        <img src="../assets/types/${details.types[1].type.name}.ico" alt="">
+        
+        `;
+    }
+    
+
+    audio.src = details.cries.latest
+    audio.volume = 0.3;
 }
 
 

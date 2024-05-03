@@ -2,113 +2,79 @@ import { fetchGenerationOne, getCardInfo } from "./fetchAPI.js"
 
 const pokeFolder = document.querySelector("#pokelist")
 const pokemon =  await fetchGenerationOne()
-
-console.log("list of pokemon:", pokemon)
+const search = document.getElementById("search")
+const pokeAll = document.querySelectorAll(".pokecard")
 
 const allPokemons = pokemon.results
-let colors = []
 
 if(allPokemons.length > 0){
-    for( let i = 0; i <allPokemons.length; i++){
-
-        let pokemonURL = allPokemons[i].url
-
-        const {sprite, type} = await getCardInfo(pokemonURL)
-
-        console.log("res", type)
-
-        type.forEach(t => {     
-
-            const type = t.type.name
-            switch(type){
-
-                case "fire":
-                    colors.push("red")
-
-                // break;
-
-                case "grass":
-                    colors.push("green")
-
-                // break;
-
-                case "water":
-                    colors.push("blue")
-
-                // break;
-                case "electric":
-                    colors.push("yellow")
-                // break;
-                case "fighting":
-                    colors.push("brown")
-
-                // break;
-                case "poison":
-                    colors.push("purple")
-
-                // break;
-                case "ground":
-                    colors.push("beige")
-
-                // break;
-                case "rock":
-                    colors.push("brown")
-
-                // break;
-                case "psychic":
-                    colors.push("crimson")
-                // break;
-                case "flying":
-                    colors.push("lightblue")
-
-                // break;
-                case "ice":
-                    colors.push("cyan")
-
-                // break;
-                case "bug":
-                    colors.push("lightgreen")
-
-                // break;
-                case "ghost":
-                    colors.push("darkviolet")
-
-                // break;
-                case "dark":
-                    colors.push("darkgrey")
-
-                // break;
-                case "steel":
-                    colors.push("silver")
-
-                // break;
-                case "fairy":
-                    colors.push("pink")
-
-                // break;
-                case "dragon":
-                    colors.push("marineblue")
-
-                // break;
-                case "normal":
-                    colors.push("white")
-
-                // break;
-                default:
-                    // console.log("typen finnes ikke",type)
     
-            }
 
-        });
+    for( let i = 0; i <allPokemons.length; i++){
+        let cards = document.querySelectorAll(`.${allPokemons[i].name}`)
+        cards.forEach(card => {
+            card.style.backgroundColor = "white"
+            
+        });     
 
-        
+        const pokemonURL = allPokemons[i].url
 
-        pokeFolder.innerHTML += `<a class="pokecard" href="./pokemon/index.html?pokeindex=${i+1}">
+        const {sprite} = await getCardInfo(pokemonURL)
+
+
+        pokeFolder.innerHTML += `<a class="pokecard ${allPokemons[i].name}" href="./pokemon/index.html?pokeindex=${i+1}">
                                     <span class="index">${i+1} </span>
                                     <img src="${sprite}" alt="${allPokemons[i].name}">
                                     <p>${allPokemons[i].name}</p>
                                 </a>`  
 
     }
-}
+    search.addEventListener('keyup', searchPokemon)
 
+    function searchPokemon(event){ 
+        const searchQuery = event.target.value.trim().toLowerCase()
+
+        for( let i = 0; i <allPokemons.length; i++){
+
+            let card = document.querySelector(`.${allPokemons[i].name}`)                
+            card.style.backgroundColor = "white"
+            card.style.filter =  "";
+
+           
+        }
+
+        if(searchQuery === ""){      
+              
+            return
+        }        
+    
+        const matches = allPokemons.filter((s)=> s.name.toLowerCase().startsWith(searchQuery))
+        const doesNotMatch = allPokemons.filter((s)=> !s.name.toLowerCase().startsWith(searchQuery))
+
+   
+        if(doesNotMatch.length){
+
+            for( let i = 0; i < doesNotMatch.length; i++){    
+                let element = document.querySelector(`.${doesNotMatch[i].name}`)                            
+                element.style.filter =  "grayscale(100%)";
+    
+            }
+        }
+
+
+        console.log(doesNotMatch);
+      
+        if(matches.length){
+
+            
+
+            for( let i = 0; i < matches.length; i++){
+
+                let element = document.querySelector(`.${matches[i].name}`)                
+                element.style.backgroundColor = ""
+                element.style.backgroundColor = "white"
+    
+            }
+        }
+    }    
+}
