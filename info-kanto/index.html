@@ -11,6 +11,8 @@
   </head>
   <body>
     <header>
+      <a href="/" class="goHome">Go home</a>
+
       <div>
         <label for="select">Jump to:</label>
         <input type="number" name="select" id="select" min="1" max="151" />
@@ -44,39 +46,39 @@
 
             <div class="stat-container">
               <div class="stats">
+                <span>Health</span>
                 <div class="statbar"><div id="hp"></div></div>
                 <p class="hp"></p>
-                <p>Health</p>
               </div>
 
               <div class="stats">
+                <span>Attack</span>
                 <div class="statbar"><div id="attack"></div></div>
                 <p class="attack"></p>
-                <p>Attack</p>
               </div>
 
               <div class="stats">
+                <span>Defense</span>
                 <div class="statbar"><div id="defense"></div></div>
                 <p class="defense"></p>
-                <p>Defense</p>
               </div>
 
               <div class="stats">
+                <span>Sp.Atk</span>
                 <div class="statbar"><div id="special-attack"></div></div>
                 <p class="special-attack"></p>
-                <p>Sp.Atk</p>
               </div>
 
               <div class="stats">
+                <span>Sp.Def</span>
                 <div class="statbar"><div id="special-defense"></div></div>
                 <p class="special-defense"></p>
-                <p>Sp.Def</p>
               </div>
 
               <div class="stats">
+                <span>Speed</span>
                 <div class="statbar"><div id="speed"></div></div>
                 <p class="speed"></p>
-                <p>Speed</p>
               </div>
             </div>
           </div>
@@ -413,7 +415,11 @@
       </section>
     </main>
 
-    <footer></footer>
+    <footer>
+      <div class="foot-tainer">
+        <p>Tiny project from Tom Andre Iversen || Noroff student</p>
+      </div>
+    </footer>
 
     <script src="../js/details.js" type="module"></script>
   </body>

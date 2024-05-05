@@ -28,6 +28,7 @@ function gotoNext(){
      
 };
 
+
 if(pokeindex){
 
     const details = await fetchGenerationOne(pokeindex)
@@ -63,8 +64,9 @@ if(pokeindex){
     }
     
 
-    audio.src = details.cries.lamarkPokemonOnMap
+    audio.src = details.cries.latest
     audio.volume = 0.1;
+    audio.autoplay = true
 
     const ablty_folder = document.getElementById("abilities")
 
