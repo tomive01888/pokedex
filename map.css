@@ -1,0 +1,15 @@
+#map {
+    width: 100%;
+    min-height: max-content;
+    padding-top: 4rem;
+
+    background-color: grey;
+    background-image: url(./assets/kq8mzkvpkjy51.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+

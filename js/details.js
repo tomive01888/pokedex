@@ -63,8 +63,19 @@ if(pokeindex){
     }
     
 
-    audio.src = details.cries.latest
-    audio.volume = 0.3;
+    audio.src = details.cries.lamarkPokemonOnMap
+    audio.volume = 0.1;
+
+    const ablty_folder = document.getElementById("abilities")
+
+    const ability = details.abilities
+
+    for(let i = 0; i < ability.length; i++){
+
+      ablty_folder.innerHTML += `
+      <p>${  details.abilities[i].is_hidden  ? "<span>Hidden:</span>" + details.abilities[i].ability.name : "<span>Normal:</span>" + details.abilities[i].ability.name       }</p>
+      `
+    }
 }
 
 
@@ -120,3 +131,94 @@ if(pokeindex > 1 && pokeindex < 151){
 
 
 }
+
+
+
+
+
+const locationURL = `https://pokeapi.co/api/v2/pokemon/${pokeindex}/encounters`
+
+async function markPokemonOnMap(){
+
+    const req = await fetch(locationURL)
+
+    const res = await req.json()    
+
+    const kantoLocations = res.filter(el => el.version_details.some(v => v.version["name"] === "red" || v.version["name"] === "blue"))
+ 
+    console.log(kantoLocations);
+
+    kantoLocations.forEach( l => {        
+
+        let route = l.location_area.name
+        let safari = "safari-zone"
+        let ceruleanCave = "cerulean-cave"
+        let mtMoon = "mt-moon"
+        let victoryRoad = "victory-road"
+        let rockTunnel = "rock-tunnel"
+        let seafoamIslands = "seafoam-islands"
+        let pokeMansion = "pokemon-mansion"
+        let pokeTower = "pokemon-tower"
+
+        if(route.includes(pokeTower)){
+            route = pokeTower
+        }
+
+        if(route.includes(pokeMansion)){
+            route = pokeMansion
+        }
+
+        if(route.includes(victoryRoad)){
+            route = victoryRoad
+        }
+
+        if(route.includes(rockTunnel)){
+            route = rockTunnel
+        }
+
+        if(route.includes(seafoamIslands)){
+            route = seafoamIslands
+        }
+
+        if(route.includes(safari)){
+            route = safari
+        }
+
+        if(route.includes(mtMoon)){
+            route = mtMoon
+        }
+
+        if(route.includes(ceruleanCave)){
+            route = ceruleanCave
+        }
+
+        console.log(route);
+        let target = document.querySelectorAll(`.${route}`);
+        
+        
+        const legendaryIndex = [
+            "144", "145", "146", "150", "151" 
+        ]
+
+        if(target && legendaryIndex.find(p => p === pokeindex)){
+            target.forEach(div => {
+
+                div.classList.add("targetLegendary")
+
+            })
+
+        }else{
+            target.forEach(div => {
+
+                div.classList.add("targetAquired")
+
+            })
+        }
+
+
+    })
+
+}
+
+markPokemonOnMap()
+
