@@ -9,6 +9,31 @@ const pokeindex = urlSearchParams.get("pokeindex")
 const image1 = document.getElementById("image1")
 const image2 = document.getElementById("image2")
 
+if(parseInt(pokeindex) < 1 || parseInt(pokeindex) > 151) {
+    window.location.href = "index.html?pokeindex=1";
+    alert("The pokemon you tried to enter is not part of the Kanto dex")
+} else {
+   
+}
+
+document.getElementById("select").addEventListener("input", function(event) {
+    const inputValue = parseInt(event.target.value);
+    const minLimit = parseInt(event.target.getAttribute("min"));
+    const maxLimit = parseInt(event.target.getAttribute("max"));
+    
+    if (inputValue < minLimit) {
+        event.target.value = minLimit; 
+    } else if (inputValue > maxLimit) {
+        event.target.value = maxLimit; 
+    }
+});
+
+document.getElementById("goButton").addEventListener("click", function() {
+    const selectedValue = document.getElementById("select").value;
+    const url = `/info-kanto/index.html?pokeindex=${selectedValue}`;
+    window.location.href = url;
+});
+
 const type = document.querySelector(".type")
 const audio = document.querySelector(".audio")
 
@@ -66,7 +91,7 @@ if(pokeindex){
 
     audio.src = details.cries.latest
     audio.volume = 0.1;
-    audio.autoplay = true
+    audio.autoplay = false
 
     const ablty_folder = document.getElementById("abilities")
 

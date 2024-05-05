@@ -1,7 +1,46 @@
+@font-face {
+    font-family: unown;
+    src: url(./assets/unown.ttf);
+}
+
 #next {
     position: fixed;
     right: 10px;
     top: 300px;
+}
+
+.go-to-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    input {
+        width: 90px;
+        height: 30px;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: gold;
+        color: blue;
+
+    }
 }
 
 .goHome {
@@ -102,9 +141,7 @@
 
     .fake-text {
         width: 60%;
-        height: 1px;
-        border: 3px solid black;
-        /* filter: blur(2px); */
+        font-family: unown, sans-serif;
         background: transparent;
     }
 
@@ -308,9 +345,13 @@ audio::-webkit-media-controls-fast-forward-button {
 #locations {
     width: 100%;
     z-index: 2;
-    background-color: rgba(15, 15, 15, 0.396);
-    border: 5px solid black;
     backdrop-filter: blur(3px);
+
+    background-color: rgba(15, 15, 15, 0.396);
+    border: 10px solid rgb(41, 62, 167);
+    border-radius: 8px;
+    box-shadow: 3px 3px 9px rgba(45, 45, 45, 0.508);
+
     display: grid;
     place-items: center;
     padding: 25px;
@@ -510,9 +551,7 @@ audio::-webkit-media-controls-fast-forward-button {
 
 
     .targetAquired {
-
         border: 5px dashed rgb(212, 28, 28);
-
     }
 
     .targetLegendary {
@@ -535,6 +574,306 @@ audio::-webkit-media-controls-fast-forward-button {
     }
 
     .mt-moon:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .cerulean-city-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Cerulean City";
+            color: white;
+            display: none;
+        }
+    }
+
+    .cerulean-city-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .rock-tunnel {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Rock Tunnel";
+            color: white;
+            display: none;
+        }
+    }
+
+    .rock-tunnel:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .Indigo-plateau {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Indigo Plateau";
+            color: white;
+            display: none;
+        }
+    }
+
+    .Indigo-plateau:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .victory-road {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Victory road";
+            color: white;
+            display: none;
+        }
+    }
+
+    .victory-road:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .viridian-forest-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Viridian Forest";
+            color: white;
+            display: none;
+        }
+    }
+
+    .viridian-forest-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .celadon-city-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Celadon City";
+            color: white;
+            display: none;
+        }
+    }
+
+    .celadon-city-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .saffron-city-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Saffron City";
+            color: white;
+            display: none;
+        }
+    }
+
+    .saffron-city-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .lavender-town-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Lavender Town";
+            color: white;
+            display: none;
+        }
+    }
+
+    .lavender-town-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .viridian-city-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Viridian City";
+            color: white;
+            display: none;
+        }
+    }
+
+    .viridian-city-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .vermilion-city-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Vermilion City";
+            color: white;
+            display: none;
+        }
+    }
+
+    .vermilion-city-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .pewter-city-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Pewter City";
+            color: white;
+            display: none;
+        }
+    }
+
+    .pewter-city-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .pallet-town {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Pallet Town";
+            color: white;
+            display: none;
+        }
+    }
+
+    .pallet-town:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .fuchsia-city-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Fuchsia City & Safari-Zone";
+            color: white;
+            display: none;
+        }
+    }
+
+    .fuchsia-city-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .cinnabar-island-area {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Cinnabar Island";
+            color: white;
+            display: none;
+        }
+    }
+
+    .cinnabar-island-area:hover {
+        &:after {
+            display: block;
+
+        }
+    }
+
+    .seafoam-islands {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            top: -20px;
+            background-color: black;
+            content: "Seafoam Island";
+            color: white;
+            display: none;
+        }
+    }
+
+    .seafoam-islands:hover {
         &:after {
             display: block;
 
