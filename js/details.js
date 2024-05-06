@@ -10,7 +10,7 @@ const image1 = document.getElementById("image1")
 const image2 = document.getElementById("image2")
 
 if(parseInt(pokeindex) < 1 || parseInt(pokeindex) > 151) {
-    window.location.href = "./info_kanto/index.html?pokeindex=1";
+    window.location.href = "./index.html?pokeindex=1";
     alert("The pokemon you tried to enter is not part of the Kanto dex")
 } else {
    
