@@ -41,7 +41,7 @@ const previousPoke = document.querySelector('.leftPointer')
 const prev = document.getElementById('previous')
 previousPoke.addEventListener('click', gotoPrev)
 function gotoPrev(){
-    prev.href = `./index.html?pokeindex=${pokeindex-1}`;
+    prev.href = `index.html?pokeindex=${pokeindex-1}`;
 
 };
 const nextPoke = document.querySelector('.rightPointer')

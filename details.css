@@ -551,12 +551,12 @@ audio::-webkit-media-controls-fast-forward-button {
 
 
     .targetAquired {
-        border: 5px dashed rgb(212, 28, 28);
+        border: 4px dashed rgb(212, 28, 28);
     }
 
     .targetLegendary {
 
-        border: 5px dashed rgb(255, 17, 227);
+        border: 4px dashed rgb(255, 17, 227);
 
     }
 
