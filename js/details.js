@@ -30,7 +30,7 @@ document.getElementById("select").addEventListener("input", function(event) {
 
 document.getElementById("goButton").addEventListener("click", function() {
     const selectedValue = document.getElementById("select").value;
-    const url = `./info-kanto/index.html?pokeindex=${selectedValue}`;
+    const url = `./index.html?pokeindex=${selectedValue}`;
     window.location.href = url;
 });
 
