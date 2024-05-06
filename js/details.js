@@ -30,7 +30,7 @@ document.getElementById("select").addEventListener("input", function(event) {
 
 document.getElementById("goButton").addEventListener("click", function() {
     const selectedValue = document.getElementById("select").value;
-    const url = `./index.html?pokeindex=${selectedValue}`;
+    const url = `../pokemon/info-kanto/index.html?pokeindex=${selectedValue}`;
     window.location.href = url;
 });
 
@@ -49,7 +49,7 @@ const next = document.getElementById('next')
 nextPoke.addEventListener('click', gotoNext)
 function gotoNext(){
     let pokeindexNumber = parseInt(pokeindex);
-    next.href = `./index.html?pokeindex=${pokeindexNumber + 1}`;
+    next.href = `index.html?pokeindex=${pokeindexNumber + 1}`;
      
 };
 
