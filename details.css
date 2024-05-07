@@ -7,12 +7,33 @@
     position: fixed;
     right: 10px;
     top: 300px;
+
+    @media (max-width:768px) {
+        right: 0;
+        top: 95px;
+
+    }
+}
+
+#previous {
+    position: fixed;
+    left: 10px;
+    top: 300px;
+
+    @media (max-width:768px) {
+        left: 0;
+        top: 95px;
+    }
 }
 
 .go-to-index {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width:768px) {
+        margin-top: 2rem;
+    }
 
 
     input[type="number"]::-webkit-inner-spin-button,
@@ -52,12 +73,7 @@
     font-size: 24px;
 }
 
-#previous {
-    position: fixed;
-    left: 10px;
-    top: 300px;
 
-}
 
 .leftPointer,
 .rightPointer {
@@ -77,6 +93,10 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 }
 
 .main-container {
@@ -91,8 +111,6 @@
     display: flex;
     flex-direction: column;
 
-
-
     .poketitle {
         width: 100%;
         margin: 0 auto;
@@ -100,9 +118,12 @@
         text-align: center;
         align-items: flex-start;
         justify-self: flex-start;
+
+        @media (max-width: 768px) {
+            font-size: 18px;
+
+        }
     }
-
-
 }
 
 .smaller-container {
@@ -120,6 +141,10 @@
     align-items: center;
     justify-content: flex-start;
     gap: 20px;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 
     #prevId {
         align-self: flex-start;
@@ -152,6 +177,7 @@
     top: 6%;
     left: 9%;
     z-index: -2;
+
 }
 
 #stopNext {
@@ -177,6 +203,11 @@
     width: 400px;
     height: 400px;
     user-select: none;
+
+    @media (max-width: 768px) {
+        width: 220px;
+        height: 220px;
+    }
 }
 
 #image1,
@@ -186,19 +217,87 @@
     position: absolute;
     opacity: 1;
     transition: opacity 0.5s ease, box-shadow 0.5s ease;
+
+    @media (max-width: 768px) {
+        width: 220px;
+        height: 220px;
+    }
 }
 
 #image1:hover {
     opacity: 0;
 }
 
+
+/* ______________________ STATS ______________________  */
+/* ______________________ STATS ______________________  */
+/* ______________________ STATS ______________________  */
+
+
 .stat-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 70%;
+    width: 100%;
     gap: 1rem;
+
+    @media (max-width: 635px) {
+        gap: 5px;
+    }
+
+    .health::before {
+        content: "Health";
+    }
+
+    .atk::before {
+        content: "Attack";
+    }
+
+    .def::before {
+        content: "Defense";
+    }
+
+    .spatk::before {
+        content: "Sp.Atk";
+    }
+
+    .spdef::before {
+        content: "Sp.Def";
+    }
+
+    .spd::before {
+        content: "Speed";
+    }
+
+    @media (max-width: 635px) {
+        width: 100%;
+        margin-top: 1rem;
+
+        .health::before {
+            content: "HP";
+        }
+
+        .atk::before {
+            content: "Atk";
+        }
+
+        .def::before {
+            content: "Def";
+        }
+
+        .spatk::before {
+            content: "SpA";
+        }
+
+        .spdef::before {
+            content: "SpD";
+        }
+
+        .spd::before {
+            content: "Spd";
+        }
+    }
 
 }
 
@@ -210,6 +309,11 @@
     margin: 0 auto;
     color: white;
 
+    @media (max-width: 560px) {
+        flex-direction: column;
+        gap: 4px;
+    }
+
     div {
         display: flex;
         justify-content: flex-start;
@@ -218,20 +322,26 @@
 
     }
 
-    >span {
+    span {
         width: 115px;
+    }
+
+    p {
+        align-self: flex-end;
+    }
+
+    .statbar {
+        width: 255px;
+        height: 10px;
+        border: 1px solid black;
+        border-radius: 4px;
+        display: flex;
+        gap: 10px;
+        align-self: center;
     }
 
 }
 
-.statbar {
-    width: 255px;
-    height: 10px;
-    border: 1px solid black;
-    border-radius: 4px;
-    display: flex;
-    gap: 10px;
-}
 
 #hp,
 #attack,
@@ -243,6 +353,10 @@
     border-radius: 4px;
     z-index: 0;
 }
+
+/* ______________________ STATS ______________________  */
+/* ______________________ STATS ______________________  */
+/* ______________________ STATS ______________________  */
 
 .hidden {
     display: none;
@@ -330,6 +444,15 @@ audio::-webkit-media-controls-fast-forward-button {
     gap: 10px;
     padding: 10px;
 
+    @media (max-width: 768px) {
+        font-size: 14px;
+
+        span {
+            font-size: 10px;
+        }
+
+    }
+
     span {
         color: yellow;
     }
@@ -356,9 +479,19 @@ audio::-webkit-media-controls-fast-forward-button {
     place-items: center;
     padding: 25px;
 
+    @media (max-width: 768px) {
+        padding: 3px;
+
+        display: none;
+
+    }
+
 
     >div {
         display: flex;
+
+
+
 
         >div {
             display: grid;
@@ -370,6 +503,7 @@ audio::-webkit-media-controls-fast-forward-button {
             font-size: 12px;
 
             position: relative;
+
         }
     }
 

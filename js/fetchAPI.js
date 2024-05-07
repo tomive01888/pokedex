@@ -40,9 +40,7 @@ export async function getCardInfo(url){
 
         const result = await request.json()
         
-        return {
-            sprite: result.sprites.versions["generation-ii"].gold.front_default
-        }
+        return {sprite: result.sprites.versions["generation-ii"].gold.front_default}
         
     
     }catch(error){
@@ -50,11 +48,3 @@ export async function getCardInfo(url){
 
     }
 }
-
-// for( let i = 0; i <pokemon.length; i++)
-// pokeFolder.innerHTML += `<a href="./pokemon/${pokemon[i].name}/">
-//                            <p>${i+1}  ${pokemon[i].name}</p>
-//                          </a>` 
-
-
-

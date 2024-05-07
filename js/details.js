@@ -30,7 +30,7 @@ document.getElementById("select").addEventListener("input", function(event) {
 
 document.getElementById("goButton").addEventListener("click", function() {
     const selectedValue = document.getElementById("select").value;
-    const url = `../pokemon/info-kanto/index.html?pokeindex=${selectedValue}`;
+    const url = `./index.html?pokeindex=${selectedValue}`;
     window.location.href = url;
 });
 
@@ -102,7 +102,7 @@ if(pokeindex){
       ablty_folder.innerHTML += `
       <p>${  details.abilities[i].is_hidden  ? "<span>Hidden:</span>" + details.abilities[i].ability.name : "<span>Normal:</span>" + details.abilities[i].ability.name       }</p>
       `
-    }
+    }  
 }
 
 

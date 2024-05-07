@@ -3,7 +3,6 @@ import { fetchGenerationOne, getCardInfo } from "./fetchAPI.js"
 const pokeFolder = document.querySelector("#pokelist")
 const pokemon =  await fetchGenerationOne()
 const search = document.getElementById("search")
-const pokeAll = document.querySelectorAll(".pokecard")
 
 const allPokemons = pokemon.results
 
@@ -11,11 +10,7 @@ if(allPokemons.length > 0){
     
 
     for( let i = 0; i <allPokemons.length; i++){
-        let cards = document.querySelectorAll(`.${allPokemons[i].name}`)
-        cards.forEach(card => {
-            card.style.backgroundColor = "white"
-            
-        });     
+           
 
         const pokemonURL = allPokemons[i].url
 
@@ -26,9 +21,17 @@ if(allPokemons.length > 0){
                                     <span class="index">${i+1} </span>
                                     <img src="${sprite}" alt="${allPokemons[i].name}">
                                     <p>${allPokemons[i].name}</p>
-                                </a>`  
+                                </a>`;
+        
+        let cards = document.querySelectorAll(`.${allPokemons[i].name}`)
+        cards.forEach(card => {
+            card.style.backgroundColor = "white"
+            
+        });  
 
     }
+
+
     search.addEventListener('keyup', searchPokemon)
 
     function searchPokemon(event){ 

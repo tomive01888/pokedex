@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./johto.css" />
   </head>
   <body>
@@ -11,10 +14,31 @@
       <a href="../index.html" class="goHome">Go home</a>
     </header>
     <main>
-      <section id="pokemon-carousel"></section>
+      <section>
+        <div id="navigation">
+          <button id="prev5">-5</button>
+          <button id="prev1">-1</button>
+          <button id="next1">+1</button>
+          <button id="next5">+5</button>
+        </div>
+        <div id="pokemon-carousel"></div>
+        <div id="pokemonDetails">
+          <p>Click a pokemon to display it's information</p>
+        </div>
+
+        <!-- <div id="abilities"></div> -->
+      </section>
+
       <section id="locations"></section>
+
+      <section id="map"></section>   
+      </section>
     </main>
     <footer></footer>
     <script src="./johto-single.js" type="module"></script>
   </body>
 </html>
+
+<div>
+  <img src="" alt="" />
+</div>
