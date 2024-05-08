@@ -33,12 +33,11 @@ for (let i = 0; i < numRows; i++) {
 
 locationSection.innerHTML = html;
 
-let min = 0;
-let max = 5;
 
 
 ///////////////////// Display of Johto mons
-
+let min = 0;
+let max = 5;
 
 async function updateDisplay() {
     documentJohto.innerHTML = ""; 
@@ -78,29 +77,82 @@ async function updateDisplay() {
   updateDisplay();
 
   async function displayPokemonDetails(index) {
-    const pokemonURL = document.querySelector(`.pokecard:nth-child(${index + 1})`).dataset.url;
+    const pokecards = document.querySelectorAll('.pokecard');
+    const adjustedIndex = index - min; // Adjust index to match the array indexing
+
+    if (adjustedIndex < 0 || adjustedIndex >= pokecards.length) {
+        console.error('Invalid index or no pokecards available');
+        return; // Exit the function if no pokecards are available or the index is out of range
+    }
+
+    const pokecard = pokecards[adjustedIndex];
+    if (!pokecard) {
+        console.error('Pokecard not found at index:', adjustedIndex);
+        return; // Exit the function if the pokecard element is not found
+    }
+
+    const pokemonURL = pokecard.dataset.url;
     console.log("url", pokemonURL);
   
     try {
-      // Fetch data from the URL
-      const response = await fetch(pokemonURL);
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch Pokemon details');
-      }
-  
-      // Parse the response as JSON
-      const pokemonData = await response.json();
-
-
-      const detailsContainer = document.getElementById("pokemonDetails");      
-      detailsContainer.innerHTML = `
-      <h2>${pokemonData.name}</h2>
-      <img src="${pokemonData.sprites.other["official-artwork"].front_default}" alt="${pokemonData.name}">
-      <p>Height: ${pokemonData.height}</p>
-      <p>Weight: ${pokemonData.weight}</p>
-    `;
+        // Fetch data from the URL
+        const response = await fetch(pokemonURL);
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch Pokemon details');
+        }
+    
+        // Parse the response as JSON
+        const pokemonData = await response.json();
+    
+        console.log(pokemonData);
+    
+        const detailsContainer = document.getElementById("pokemonDetails");      
+        detailsContainer.innerHTML = `
+        <span class="pokeId"> ${'#'+pokemonData.id} </span>
+            <h2>${pokemonData.name}</h2>
+            <img id="image2" src="${pokemonData.sprites.other["official-artwork"].front_shiny}" alt="${pokemonData.name}">
+            <img id="image1" src="${pokemonData.sprites.other["official-artwork"].front_default}" alt="${pokemonData.name}">
+            <p>Height: ${pokemonData.height}</p>
+            <p>Weight: ${pokemonData.weight}</p>
+        `;
     } catch (error) {
-      console.error('Error fetching Pokemon details:', error);
+        console.error('Error fetching Pokemon details:', error);
     }
-  }
+}
+
+
+
+
+
+document.getElementById("prev5").addEventListener("click", () => {
+    if (min >= 5) {
+        min -= 5;
+        max -= 5;
+        updateDisplay();
+    }
+});
+
+document.getElementById("prev1").addEventListener("click", () => {
+    if (min >= 1) {
+        min -= 1;
+        max -= 1;
+        updateDisplay();
+    }
+});
+
+document.getElementById("next1").addEventListener("click", () => {
+    if (max < allJohtoMons.length) {
+        min += 1;
+        max += 1;
+        updateDisplay();
+    }
+});
+
+document.getElementById("next5").addEventListener("click", () => {
+    if (max + 5 <= allJohtoMons.length) {
+        min += 5;
+        max += 5;
+        updateDisplay();
+    }
+});

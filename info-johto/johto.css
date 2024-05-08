@@ -488,13 +488,43 @@ main {
 
 
 #pokemonDetails {
+    position: relative;
     width: 100%;
-    min-height: 10vh;
+    min-height: 50vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     background-color: rgb(41, 62, 167);
     border: 1px solid rgba(128, 128, 128, 0.367);
     border-radius: 8px;
     box-shadow: 3px 3px 9px rgba(45, 45, 45, 0.508);
+
+    .pokeId {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    #image1,
+    #image2 {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translate(0%, -50%);
+
+        width: 400px;
+        height: 400px;
+
+        opacity: 1;
+        transition: opacity 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    #image1:hover {
+        opacity: 0;
+    }
 }
 
 #abilities {

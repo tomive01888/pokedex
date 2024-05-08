@@ -103,6 +103,7 @@ if(pokeindex){
       <p>${  details.abilities[i].is_hidden  ? "<span>Hidden:</span>" + details.abilities[i].ability.name : "<span>Normal:</span>" + details.abilities[i].ability.name       }</p>
       `
     }  
+
 }
 
 

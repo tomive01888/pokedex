@@ -94,7 +94,7 @@
     flex-direction: column;
     gap: 20px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1250px) {
         width: 90%;
     }
 }
@@ -142,7 +142,7 @@
     justify-content: flex-start;
     gap: 20px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1250px) {
         display: none;
     }
 
@@ -242,6 +242,17 @@
     width: 100%;
     gap: 1rem;
 
+    >div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1rem;
+
+        width: max-content;
+
+    }
+
     @media (max-width: 635px) {
         gap: 5px;
     }
@@ -304,12 +315,13 @@
 .stats {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 100%;
     gap: 1rem;
-    margin: 0 auto;
     color: white;
 
-    @media (max-width: 560px) {
+    @media (max-width: 620px) {
         flex-direction: column;
         gap: 4px;
     }
@@ -349,7 +361,7 @@
 #special-attack,
 #special-defense,
 #speed {
-    background-color: red;
+    background-color: rgb(195, 2, 2);
     border-radius: 4px;
     z-index: 0;
 }
@@ -375,6 +387,8 @@
         top: 40%;
         left: 10%;
         color: white;
+
+        @
     }
 
 }
@@ -677,7 +691,7 @@ audio::-webkit-media-controls-fast-forward-button {
     /* island */
 
     .p-6 {
-        background-color: rgb(28, 50, 95);
+        background-color: rgb(24, 69, 160);
         border: 2px solid white;
 
 
@@ -964,6 +978,7 @@ audio::-webkit-media-controls-fast-forward-button {
             content: "Fuchsia City & Safari-Zone";
             color: white;
             display: none;
+            z-index: 99;
         }
     }
 
