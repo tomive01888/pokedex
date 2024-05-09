@@ -9,7 +9,7 @@ const pokeindex = urlSearchParams.get("pokeindex")
 const image1 = document.getElementById("image1")
 const image2 = document.getElementById("image2")
 
-if(parseInt(pokeindex) < 1 || parseInt(pokeindex) > 151) {
+if(parseInt(pokeindex) < 1 || parseInt(pokeindex) > 251) {
     window.location.href = "./index.html?pokeindex=1";
     alert("The pokemon you tried to enter is not part of the Kanto dex")
 } else {
@@ -102,9 +102,9 @@ if(pokeindex){
       ablty_folder.innerHTML += `
       <p>${  details.abilities[i].is_hidden  ? "<span>Hidden:</span>" + details.abilities[i].ability.name : "<span>Normal:</span>" + details.abilities[i].ability.name       }</p>
       `
-    }  
+    }
+}  
 
-}
 
 
 const stopLeft = document.getElementById("stopPrev")
@@ -116,7 +116,7 @@ const nextNumber = document.querySelector("#nextId")
 
 if(pokeindex === "1"){
 
-    previousPoke.style.display = "none"
+    previousPoke.style.display = "none";
     stopLeft.classList.add("hidden") 
 
     let pokenextNumber = parseInt(pokeindex);
@@ -130,7 +130,7 @@ if(pokeindex === "1"){
 
 };
 
-if(pokeindex === "151"){
+if(pokeindex === "251"){
     const prevId = await fetchGenerationOne(pokeindex - 1)
     imgPrev.src = prevId.sprites.other["official-artwork"].front_default
     imgPrev.alt = prevId.name
@@ -140,7 +140,7 @@ if(pokeindex === "151"){
     stopRight.classList.add("hidden")
 }
 
-if(pokeindex > 1 && pokeindex < 151){
+if(pokeindex > 1 && pokeindex < 251){
 
     const prevId = await fetchGenerationOne(pokeindex - 1)
     imgPrev.src = prevId.sprites.other["official-artwork"].front_default

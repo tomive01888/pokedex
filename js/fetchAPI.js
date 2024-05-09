@@ -1,5 +1,5 @@
 const pokeapiUrl = "https://pokeapi.co/api/v2/pokemon"
-const genOne = "?limit=151"
+const genOne = "?limit=251"
 
 
 export async function fetchGenerationOne(specific = null) {

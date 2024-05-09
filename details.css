@@ -196,7 +196,7 @@
     padding: 12px;
 }
 
-.pokeImg {
+.image-container {
     position: relative;
     width: 400px;
     height: 400px;
@@ -474,4 +474,8 @@ audio::-webkit-media-controls-fast-forward-button {
         text-transform: uppercase;
     }
 
+}
+
+.hidden {
+    display: none;
 }
