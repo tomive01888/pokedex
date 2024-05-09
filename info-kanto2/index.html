@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex Generation 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../index.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../index.html" class="goHome">Go home</a>
+
+      <div class="go-to-index">
+        <label for="select">Jump to:</label>
+        <input type="number" name="select" id="select" min="1" max="151" />
+        <button id="goButton">GO</button>
+      </div>
+    </header>
+
+    <main>
+      <a href="" id="previous"><button type="button" class="leftPointer">&#x276C;</button></a>
+      <a href="" id="next"><button type="button" class="rightPointer">&#x276D;</button></a>
+      <section id="allWrapper">
+        <div>
+          <div class="smaller-container" id="stopPrev">
+            <p id="prevId"></p>
+            <img class="indexPrev" src="" alt="" />
+            <div class="fake-text">this is the previous pokemon, can you see who it is?</div>
+          </div>
+
+          <div class="smaller-container" id="stopNext">
+            <p id="nextId"></p>
+
+            <img class="indexNext" src="" alt="" />
+            <div class="fake-text">this pokemon is next, hope you like my test page</div>
+          </div>
+        </div>
+
+        <div class="main-container">
+          <h1 class="poketitle"></h1>
+
+          <div id="pokedetails">
+            <div class="image-container">
+              <img id="image2" class="image" src="" alt="" />
+              <img id="image1" class="image" src="" alt="" />
+            </div>
+
+            <div class="stat-container">
+              <div>
+                <div class="stats">
+                  <span class="health"></span>
+                  <div class="statbar"><div id="hp"></div></div>
+                  <p class="hp"></p>
+                </div>
+
+                <div class="stats">
+                  <span class="atk"></span>
+                  <div class="statbar"><div id="attack"></div></div>
+                  <p class="attack"></p>
+                </div>
+
+                <div class="stats">
+                  <span class="def"></span>
+                  <div class="statbar"><div id="defense"></div></div>
+                  <p class="defense"></p>
+                </div>
+
+                <div class="stats">
+                  <span class="spatk"></span>
+                  <div class="statbar"><div id="special-attack"></div></div>
+                  <p class="special-attack"></p>
+                </div>
+
+                <div class="stats">
+                  <span class="spdef"></span>
+                  <div class="statbar"><div id="special-defense"></div></div>
+                  <p class="special-defense"></p>
+                </div>
+
+                <div class="stats">
+                  <span class="spd"></span>
+                  <div class="statbar"><div id="speed"></div></div>
+                  <p class="speed"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <audio controls src="" class="audio"></audio>
+
+        
+      </section>
+    </main>
+
+    <footer>
+      <div class="foot-tainer">
+        <p>Tiny project from Tom Andre Iversen || Noroff student</p>
+      </div>
+    </footer>
+
+    <script src="../js/details.js" type="module"></script>
+  </body>
+</html>

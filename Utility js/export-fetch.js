@@ -1,11 +1,10 @@
-const urlJohto = "https://pokeapi.co/api/v2/pokemon/"
-const limit = "?limit=100&offset=151"
 
-export async function fetchJohto(){
+
+export async function fetchPokemonList(url){
 
     try {
 
-        const req = await fetch(urlJohto + limit)
+        const req = await fetch(url)
 
         if(!req.ok){
             throw new Error("Failed to fetch API")
@@ -22,7 +21,7 @@ export async function fetchJohto(){
 
 
 
-export async function johtoSprite(url){
+export async function pokeSprite(url){
 
     try {
 
@@ -34,7 +33,7 @@ export async function johtoSprite(url){
 
         const res = await req.json()        
 
-        return {sprite: res.sprites.versions["generation-ii"].gold.front_default}
+        return {sprite: res.sprites.versions["generation-ii"].crystal.front_default}
 
     } catch (error) {
         console.log("ERROR")

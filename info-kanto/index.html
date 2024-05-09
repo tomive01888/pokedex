@@ -3,434 +3,378 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokédex Generation 1</title>
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../index.css" />
+    <link rel="stylesheet" href="./kanto.css" />
   </head>
   <body>
     <header>
       <a href="../index.html" class="goHome">Go home</a>
-
-      <div class="go-to-index">
-        <label for="select">Jump to:</label>
-        <input type="number" name="select" id="select" min="1" max="151" />
-        <button id="goButton">GO</button>
-      </div>
+      <a href="../info-johto/index.html">Go Johto</a>
     </header>
-
     <main>
-      <a href="" id="previous"><button type="button" class="leftPointer">&#x276C;</button></a>
-      <a href="" id="next"><button type="button" class="rightPointer">&#x276D;</button></a>
-      <section id="allWrapper">
+      <div class="overlay1"></div>
+      <div class="overlay2"></div>
+
+      <section id="mainbox">
+        <span class="target"></span>
+        <div id="pokemon-carousel"></div>
+      </section>
+
+      <div class="buttons">
+        <button class="goToStart">&#xab;</button>
+        <button class="goMinus10">&#x2039;-10</button>
+        <button class="previous">&#x2039;-1</button>
+
+        <button class="next">+1&#x203A;</button>
+        <button class="goPlus10">+10&#x203A;</button>
+        <button class="goToEnd">&#xbb;</button>
+      </div>
+
+      <div id="pokemonDetails">
+        <span id="pokeId"></span>
+        <div id="pokeImg"></div>
+        <div id="pokeInfo">
+          <div id="pokeContent"></div>
+          <section id="type-tainer">
+            <p>Type:</p>
+            <div class="type"></div>
+          </section>
+          <section id="abilities"></section>
+         
+        </div>
+        </div>
+      </div>
+
+     
+
+      <section id="locations">
+        <article></article>
+
         <div>
-          <div class="smaller-container" id="stopPrev">
-            <p id="prevId"></p>
-            <img class="indexPrev" src="" alt="" />
-            <div class="fake-text">this is the previous pokemon, can you see who it is?</div>
-          </div>
-
-          <div class="smaller-container" id="stopNext">
-            <p id="nextId"></p>
-
-            <img class="indexNext" src="" alt="" />
-            <div class="fake-text">this pokemon is next, hope you like my test page</div>
-          </div>
+          <!-- A -->
+          <div class="a-1"></div>
+          <div class="a-2"></div>
+          <div class="a-3"></div>
+          <div class="a-4"></div>
+          <div class="a-5"></div>
+          <div class="a-6"></div>
+          <div class="a-7"></div>
+          <div class="a-8"></div>
+          <div class="a-9"></div>
+          <div class="a-10"></div>
+          <div class="a-11"></div>
+          <div class="a-12"></div>
+          <div class="a-13 kanto-route-25-area">25</div>
+          <div class="a-14"></div>
+          <div class="a-15"></div>
+          <div class="a-16"></div>
         </div>
 
-        <div class="main-container">
-          <h1 class="poketitle"></h1>
-
-          <div id="pokedetails">
-            <div class="image-container">
-              <img id="image2" class="image" src="" alt="" />
-              <img id="image1" class="image" src="" alt="" />
-            </div>
-
-            <div class="stat-container">
-              <div>
-                <div class="stats">
-                  <span class="health"></span>
-                  <div class="statbar"><div id="hp"></div></div>
-                  <p class="hp"></p>
-                </div>
-
-                <div class="stats">
-                  <span class="atk"></span>
-                  <div class="statbar"><div id="attack"></div></div>
-                  <p class="attack"></p>
-                </div>
-
-                <div class="stats">
-                  <span class="def"></span>
-                  <div class="statbar"><div id="defense"></div></div>
-                  <p class="defense"></p>
-                </div>
-
-                <div class="stats">
-                  <span class="spatk"></span>
-                  <div class="statbar"><div id="special-attack"></div></div>
-                  <p class="special-attack"></p>
-                </div>
-
-                <div class="stats">
-                  <span class="spdef"></span>
-                  <div class="statbar"><div id="special-defense"></div></div>
-                  <p class="special-defense"></p>
-                </div>
-
-                <div class="stats">
-                  <span class="spd"></span>
-                  <div class="statbar"><div id="speed"></div></div>
-                  <p class="speed"></p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div>
+          <!-- B -->
+          <div class="b-1"></div>
+          <div class="b-2"></div>
+          <div class="b-3"></div>
+          <div class="b-4"></div>
+          <div class="b-5"></div>
+          <div class="b-6"></div>
+          <div class="b-7"></div>
+          <div class="b-8"></div>
+          <div class="b-9"></div>
+          <div class="b-10"></div>
+          <div class="b-11"></div>
+          <div class="b-12 kanto-route-24-area cerulean-cave">24</div>
+          <div class="b-13"></div>
+          <div class="b-14"></div>
+          <div class="b-15"></div>
+          <div class="b-16"></div>
         </div>
 
-        <section id="type-tainer">
-          <p>Type:</p>
-          <div class="type"></div>
-        </section>
+        <div>
+          <!-- C -->
+          <div class="c-1 Indigo-plateau"></div>
+          <div class="c-2"></div>
+          <div class="c-3"></div>
+          <div class="c-4"></div>
+          <div class="c-5"></div>
+          <div class="c-6"></div>
+          <div class="c-7 mt-moon"></div>
+          <div class="c-8"></div>
+          <div class="c-9"></div>
+          <div class="c-10 kanto-route-4-area kanto-route-4-pokemon-center">4</div>
+          <div class="c-11"></div>
+          <div class="c-12 cerulean-city-area"></div>
+          <div class="c-13"></div>
+          <div class="c-14 kanto-route-9-area">9</div>
+          <div class="c-15"></div>
+          <div class="c-16 rock-tunnel"></div>
+        </div>
 
-        <audio controls src="" class="audio"></audio>
+        <div>
+          <!-- D -->
+          <div class="d-1 victory-road"></div>
+          <div class="d-2"></div>
+          <div class="d-3 pewter-city-area"></div>
+          <div class="d-4"></div>
+          <div class="d-5 kanto-route-3-area kanto-route-3-pokemon-center">3</div>
+          <div class="d-6"></div>
+          <div class="d-7"></div>
+          <div class="d-8"></div>
+          <div class="d-9"></div>
+          <div class="d-10"></div>
+          <div class="d-11"></div>
+          <div class="d-12 kanto-route-5-area">5</div>
+          <div class="d-13"></div>
+          <div class="d-14"></div>
+          <div class="d-15"></div>
+          <div class="d-16 kanto-route-10-area power-plant-area">10</div>
+        </div>
 
-        <section id="abilities"></section>
+        <div>
+          <!-- E -->
+          <div class="e-1"></div>
+          <div class="e-2"></div>
+          <div class="e-3"></div>
+          <div class="e-4"></div>
+          <div class="e-5"></div>
+          <div class="e-6"></div>
+          <div class="e-7"></div>
+          <div class="e-8"></div>
+          <div class="e-9"></div>
+          <div class="e-10"></div>
+          <div class="e-11"></div>
+          <div class="e-12"></div>
+          <div class="e-13"></div>
+          <div class="e-14"></div>
+          <div class="e-15"></div>
+          <div class="e-16"></div>
+        </div>
 
-        <section id="locations">
-          <article></article>
+        <div>
+          <!-- F -->
+          <div class="f-1"></div>
+          <div class="f-2"></div>
+          <div class="f-3 viridian-forest-area"></div>
+          <div class="f-4"></div>
+          <div class="f-5"></div>
+          <div class="f-6 kanto-route-16-area">16</div>
+          <div class="f-7"></div>
+          <div class="f-8"></div>
+          <div class="f-9 celadon-city-area celadon-city-celadon-mansion"></div>
+          <div class="f-10 kanto-route-7-area">7</div>
+          <div class="f-11"></div>
+          <div class="f-12 saffron-city-fighting-dojo saffron-city-silph-co-7f saffron-city-area"></div>
+          <div class="f-13"></div>
+          <div class="f-14 kanto-route-8-area">8</div>
+          <div class="f-15"></div>
+          <div class="f-16 pokemon-tower lavender-town-area"></div>
+        </div>
 
-          <div>
-            <!-- A -->
-            <div class="a-1"></div>
-            <div class="a-2"></div>
-            <div class="a-3"></div>
-            <div class="a-4"></div>
-            <div class="a-5"></div>
-            <div class="a-6"></div>
-            <div class="a-7"></div>
-            <div class="a-8"></div>
-            <div class="a-9"></div>
-            <div class="a-10"></div>
-            <div class="a-11"></div>
-            <div class="a-12"></div>
-            <div class="a-13 kanto-route-25-area">25</div>
-            <div class="a-14"></div>
-            <div class="a-15"></div>
-            <div class="a-16"></div>
-          </div>
+        <div>
+          <!-- G -->
+          <div class="g-1 kanto-route-23-area">23</div>
+          <div class="g-2"></div>
+          <div class="g-3 kanto-route-2-area kanto-route-2-south-towards-viridian-city digletts-cave-area">2</div>
+          <div class="g-4"></div>
+          <div class="g-5"></div>
+          <div class="g-6"></div>
+          <div class="g-7"></div>
+          <div class="g-8"></div>
+          <div class="g-9"></div>
+          <div class="g-10"></div>
+          <div class="g-11"></div>
+          <div class="g-12"></div>
+          <div class="g-13"></div>
+          <div class="g-14"></div>
+          <div class="g-15"></div>
+          <div class="g-16"></div>
+        </div>
 
-          <div>
-            <!-- B -->
-            <div class="b-1"></div>
-            <div class="b-2"></div>
-            <div class="b-3"></div>
-            <div class="b-4"></div>
-            <div class="b-5"></div>
-            <div class="b-6"></div>
-            <div class="b-7"></div>
-            <div class="b-8"></div>
-            <div class="b-9"></div>
-            <div class="b-10"></div>
-            <div class="b-11"></div>
-            <div class="b-12 kanto-route-24-area cerulean-cave">24</div>
-            <div class="b-13"></div>
-            <div class="b-14"></div>
-            <div class="b-15"></div>
-            <div class="b-16"></div>
-          </div>
+        <div>
+          <!-- H -->
+          <div class="h-1"></div>
+          <div class="h-2"></div>
+          <div class="h-3"></div>
+          <div class="h-4"></div>
+          <div class="h-5 kanto-route-17-area">17</div>
+          <div class="h-6"></div>
+          <div class="h-7"></div>
+          <div class="h-8"></div>
+          <div class="h-9"></div>
+          <div class="h-10"></div>
+          <div class="h-11"></div>
+          <div class="h-12 kanto-route-6-area">6</div>
+          <div class="h-13"></div>
+          <div class="h-14"></div>
+          <div class="h-15"></div>
+          <div class="h-16 kanto-route-12-area">12</div>
+        </div>
 
-          <div>
-            <!-- C -->
-            <div class="c-1 Indigo-plateau"></div>
-            <div class="c-2"></div>
-            <div class="c-3"></div>
-            <div class="c-4"></div>
-            <div class="c-5"></div>
-            <div class="c-6"></div>
-            <div class="c-7 mt-moon"></div>
-            <div class="c-8"></div>
-            <div class="c-9"></div>
-            <div class="c-10 kanto-route-4-area kanto-route-4-pokemon-center">4</div>
-            <div class="c-11"></div>
-            <div class="c-12 cerulean-city-area"></div>
-            <div class="c-13"></div>
-            <div class="c-14 kanto-route-9-area">9</div>
-            <div class="c-15"></div>
-            <div class="c-16 rock-tunnel"></div>
-          </div>
+        <div>
+          <!-- I -->
+          <div class="i-1 kanto-route-22-area">22</div>
+          <div class="i-2"></div>
+          <div class="i-3 viridian-city-area"></div>
+          <div class="i-4"></div>
+          <div class="i-5"></div>
+          <div class="i-6"></div>
+          <div class="i-7"></div>
+          <div class="i-8"></div>
+          <div class="i-9"></div>
+          <div class="i-10"></div>
+          <div class="i-11"></div>
+          <div class="i-12"></div>
+          <div class="i-13"></div>
+          <div class="i-14"></div>
+          <div class="i-15"></div>
+          <div class="i-16"></div>
+        </div>
 
-          <div>
-            <!-- D -->
-            <div class="d-1 victory-road"></div>
-            <div class="d-2"></div>
-            <div class="d-3 pewter-city-area"></div>
-            <div class="d-4"></div>
-            <div class="d-5 kanto-route-3-area kanto-route-3-pokemon-center">3</div>
-            <div class="d-6"></div>
-            <div class="d-7"></div>
-            <div class="d-8"></div>
-            <div class="d-9"></div>
-            <div class="d-10"></div>
-            <div class="d-11"></div>
-            <div class="d-12 kanto-route-5-area">5</div>
-            <div class="d-13"></div>
-            <div class="d-14"></div>
-            <div class="d-15"></div>
-            <div class="d-16 kanto-route-10-area power-plant-area">10</div>
-          </div>
+        <div>
+          <!-- J -->
+          <div class="j-1"></div>
+          <div class="j-2"></div>
+          <div class="j-3"></div>
+          <div class="j-4"></div>
+          <div class="j-5"></div>
+          <div class="j-6"></div>
+          <div class="j-7"></div>
+          <div class="j-8"></div>
+          <div class="j-9"></div>
+          <div class="j-10"></div>
+          <div class="j-11"></div>
+          <div class="j-12 vermilion-city-area vermilion-city-ss-anne-dock"></div>
+          <div class="j-13"></div>
+          <div class="j-14 kanto-route-11-area digletts-cave-area">11</div>
+          <div class="j-15"></div>
+          <div class="j-16"></div>
+        </div>
 
-          <div>
-            <!-- E -->
-            <div class="e-1"></div>
-            <div class="e-2"></div>
-            <div class="e-3"></div>
-            <div class="e-4"></div>
-            <div class="e-5"></div>
-            <div class="e-6"></div>
-            <div class="e-7"></div>
-            <div class="e-8"></div>
-            <div class="e-9"></div>
-            <div class="e-10"></div>
-            <div class="e-11"></div>
-            <div class="e-12"></div>
-            <div class="e-13"></div>
-            <div class="e-14"></div>
-            <div class="e-15"></div>
-            <div class="e-16"></div>
-          </div>
+        <div>
+          <!-- K -->
+          <div class="k-1"></div>
+          <div class="k-2"></div>
+          <div class="k-3 kanto-route-1-area">1</div>
+          <div class="k-4"></div>
+          <div class="k-5"></div>
+          <div class="k-6"></div>
+          <div class="k-7"></div>
+          <div class="k-8"></div>
+          <div class="k-9"></div>
+          <div class="k-10"></div>
+          <div class="k-11"></div>
+          <div class="k-12"></div>
+          <div class="k-13"></div>
+          <div class="k-14"></div>
+          <div class="k-15"></div>
+          <div class="k-16"></div>
+        </div>
 
-          <div>
-            <!-- F -->
-            <div class="f-1"></div>
-            <div class="f-2"></div>
-            <div class="f-3 viridian-forest-area"></div>
-            <div class="f-4"></div>
-            <div class="f-5"></div>
-            <div class="f-6 kanto-route-16-area">16</div>
-            <div class="f-7"></div>
-            <div class="f-8"></div>
-            <div class="f-9 celadon-city-area celadon-city-celadon-mansion"></div>
-            <div class="f-10 kanto-route-7-area">7</div>
-            <div class="f-11"></div>
-            <div class="f-12 saffron-city-fighting-dojo saffron-city-silph-co-7f saffron-city-area"></div>
-            <div class="f-13"></div>
-            <div class="f-14 kanto-route-8-area">8</div>
-            <div class="f-15"></div>
-            <div class="f-16 pokemon-tower lavender-town-area"></div>
-          </div>
+        <div>
+          <!-- L -->
+          <div class="l-1"></div>
+          <div class="l-2"></div>
+          <div class="l-3 pallet-town pallet-town-area"></div>
+          <div class="l-4"></div>
+          <div class="l-5"></div>
+          <div class="l-6"></div>
+          <div class="l-7"></div>
+          <div class="l-8"></div>
+          <div class="l-9"></div>
+          <div class="l-10"></div>
+          <div class="l-11"></div>
+          <div class="l-12"></div>
+          <div class="l-13"></div>
+          <div class="l-14"></div>
+          <div class="l-15 kanto-route-13-area">13</div>
+          <div class="l-16"></div>
+        </div>
 
-          <div>
-            <!-- G -->
-            <div class="g-1 kanto-route-23-area">23</div>
-            <div class="g-2"></div>
-            <div class="g-3 kanto-route-2-area kanto-route-2-south-towards-viridian-city digletts-cave-area">2</div>
-            <div class="g-4"></div>
-            <div class="g-5"></div>
-            <div class="g-6"></div>
-            <div class="g-7"></div>
-            <div class="g-8"></div>
-            <div class="g-9"></div>
-            <div class="g-10"></div>
-            <div class="g-11"></div>
-            <div class="g-12"></div>
-            <div class="g-13"></div>
-            <div class="g-14"></div>
-            <div class="g-15"></div>
-            <div class="g-16"></div>
-          </div>
+        <div>
+          <!-- M -->
+          <div class="m-1"></div>
+          <div class="m-2"></div>
+          <div class="m-3"></div>
+          <div class="m-4"></div>
+          <div class="m-5"></div>
+          <div class="m-6"></div>
+          <div class="m-7"></div>
+          <div class="m-8"></div>
+          <div class="m-9"></div>
+          <div class="m-10"></div>
+          <div class="m-11"></div>
+          <div class="m-12"></div>
+          <div class="m-13 kanto-route-14-area">14</div>
+          <div class="m-14"></div>
+          <div class="m-15"></div>
+          <div class="m-16"></div>
+        </div>
 
-          <div>
-            <!-- H -->
-            <div class="h-1"></div>
-            <div class="h-2"></div>
-            <div class="h-3"></div>
-            <div class="h-4"></div>
-            <div class="h-5 kanto-route-17-area">17</div>
-            <div class="h-6"></div>
-            <div class="h-7"></div>
-            <div class="h-8"></div>
-            <div class="h-9"></div>
-            <div class="h-10"></div>
-            <div class="h-11"></div>
-            <div class="h-12 kanto-route-6-area">6</div>
-            <div class="h-13"></div>
-            <div class="h-14"></div>
-            <div class="h-15"></div>
-            <div class="h-16 kanto-route-12-area">12</div>
-          </div>
+        <div>
+          <!-- N -->
+          <div class="n-1"></div>
+          <div class="n-2"></div>
+          <div class="n-3 kanto-route-21-area kanto-sea-route-21-area">21</div>
+          <div class="n-4"></div>
+          <div class="n-5"></div>
+          <div class="n-6"></div>
+          <div class="n-7"></div>
+          <div class="n-8 kanto-route-18-area">18</div>
+          <div class="n-9"></div>
+          <div class="n-10 safari-zone fuchsia-city-area"></div>
+          <div class="n-11"></div>
+          <div class="n-12 kanto-route-15-area">15</div>
+          <div class="n-13"></div>
+          <div class="n-14"></div>
+          <div class="n-15"></div>
+          <div class="n-16"></div>
+        </div>
 
-          <div>
-            <!-- I -->
-            <div class="i-1 kanto-route-22-area">22</div>
-            <div class="i-2"></div>
-            <div class="i-3 viridian-city-area"></div>
-            <div class="i-4"></div>
-            <div class="i-5"></div>
-            <div class="i-6"></div>
-            <div class="i-7"></div>
-            <div class="i-8"></div>
-            <div class="i-9"></div>
-            <div class="i-10"></div>
-            <div class="i-11"></div>
-            <div class="i-12"></div>
-            <div class="i-13"></div>
-            <div class="i-14"></div>
-            <div class="i-15"></div>
-            <div class="i-16"></div>
-          </div>
+        <div>
+          <!-- O -->
+          <div class="o-1"></div>
+          <div class="o-2"></div>
+          <div class="o-3"></div>
+          <div class="o-4"></div>
+          <div class="o-5"></div>
+          <div class="o-6"></div>
+          <div class="o-7"></div>
+          <div class="o-8"></div>
+          <div class="o-9"></div>
+          <div class="o-10 kanto-route-19-area kanto-sea-route-19-area">19</div>
+          <div class="o-11"></div>
+          <div class="o-12"></div>
+          <div class="o-13"></div>
+          <div class="o-14"></div>
+          <div class="o-15"></div>
+          <div class="o-16"></div>
+        </div>
 
-          <div>
-            <!-- J -->
-            <div class="j-1"></div>
-            <div class="j-2"></div>
-            <div class="j-3"></div>
-            <div class="j-4"></div>
-            <div class="j-5"></div>
-            <div class="j-6"></div>
-            <div class="j-7"></div>
-            <div class="j-8"></div>
-            <div class="j-9"></div>
-            <div class="j-10"></div>
-            <div class="j-11"></div>
-            <div class="j-12 vermilion-city-area vermilion-city-ss-anne-dock"></div>
-            <div class="j-13"></div>
-            <div class="j-14 kanto-route-11-area digletts-cave-area">11</div>
-            <div class="j-15"></div>
-            <div class="j-16"></div>
-          </div>
-
-          <div>
-            <!-- K -->
-            <div class="k-1"></div>
-            <div class="k-2"></div>
-            <div class="k-3 kanto-route-1-area">1</div>
-            <div class="k-4"></div>
-            <div class="k-5"></div>
-            <div class="k-6"></div>
-            <div class="k-7"></div>
-            <div class="k-8"></div>
-            <div class="k-9"></div>
-            <div class="k-10"></div>
-            <div class="k-11"></div>
-            <div class="k-12"></div>
-            <div class="k-13"></div>
-            <div class="k-14"></div>
-            <div class="k-15"></div>
-            <div class="k-16"></div>
-          </div>
-
-          <div>
-            <!-- L -->
-            <div class="l-1"></div>
-            <div class="l-2"></div>
-            <div class="l-3 pallet-town"></div>
-            <div class="l-4"></div>
-            <div class="l-5"></div>
-            <div class="l-6"></div>
-            <div class="l-7"></div>
-            <div class="l-8"></div>
-            <div class="l-9"></div>
-            <div class="l-10"></div>
-            <div class="l-11"></div>
-            <div class="l-12"></div>
-            <div class="l-13"></div>
-            <div class="l-14"></div>
-            <div class="l-15 kanto-route-13-area">13</div>
-            <div class="l-16"></div>
-          </div>
-
-          <div>
-            <!-- M -->
-            <div class="m-1"></div>
-            <div class="m-2"></div>
-            <div class="m-3 pallet-town-area"></div>
-            <div class="m-4"></div>
-            <div class="m-5"></div>
-            <div class="m-6"></div>
-            <div class="m-7"></div>
-            <div class="m-8"></div>
-            <div class="m-9"></div>
-            <div class="m-10"></div>
-            <div class="m-11"></div>
-            <div class="m-12"></div>
-            <div class="m-13 kanto-route-14-area">14</div>
-            <div class="m-14"></div>
-            <div class="m-15"></div>
-            <div class="m-16"></div>
-          </div>
-
-          <div>
-            <!-- N -->
-            <div class="n-1"></div>
-            <div class="n-2"></div>
-            <div class="n-3 kanto-route-21-area kanto-sea-route-21-area">21</div>
-            <div class="n-4"></div>
-            <div class="n-5"></div>
-            <div class="n-6"></div>
-            <div class="n-7"></div>
-            <div class="n-8 kanto-route-18-area">18</div>
-            <div class="n-9"></div>
-            <div class="n-10 safari-zone fuchsia-city-area"></div>
-            <div class="n-11"></div>
-            <div class="n-12 kanto-route-15-area">15</div>
-            <div class="n-13"></div>
-            <div class="n-14"></div>
-            <div class="n-15"></div>
-            <div class="n-16"></div>
-          </div>
-
-          <div>
-            <!-- O -->
-            <div class="o-1"></div>
-            <div class="o-2"></div>
-            <div class="o-3"></div>
-            <div class="o-4"></div>
-            <div class="o-5"></div>
-            <div class="o-6"></div>
-            <div class="o-7"></div>
-            <div class="o-8"></div>
-            <div class="o-9"></div>
-            <div class="o-10 kanto-route-19-area kanto-sea-route-19-area">19</div>
-            <div class="o-11"></div>
-            <div class="o-12"></div>
-            <div class="o-13"></div>
-            <div class="o-14"></div>
-            <div class="o-15"></div>
-            <div class="o-16"></div>
-          </div>
-
-          <div>
-            <!-- P -->
-            <div class="p-1"></div>
-            <div class="p-2"></div>
-            <div class="p-3 pokemon-mansion cinnabar-island-area cinnabar-island-cinnabar-lab"></div>
-            <div class="p-4"></div>
-            <div class="p-5"></div>
-            <div class="p-6 seafoam-islands"></div>
-            <div class="p-7"></div>
-            <div class="p-8 kanto-route-20-area kanto-sea-route-20-area">20</div>
-            <div class="p-9"></div>
-            <div class="p-10"></div>
-            <div class="p-11"></div>
-            <div class="p-12"></div>
-            <div class="p-13"></div>
-            <div class="p-14"></div>
-            <div class="p-15"></div>
-            <div class="p-16"></div>
-          </div>
-        </section>
+        <div>
+          <!-- P -->
+          <div class="p-1"></div>
+          <div class="p-2"></div>
+          <div class="p-3 pokemon-mansion cinnabar-island-area cinnabar-island-cinnabar-lab"></div>
+          <div class="p-4"></div>
+          <div class="p-5"></div>
+          <div class="p-6 seafoam-islands"></div>
+          <div class="p-7"></div>
+          <div class="p-8 kanto-route-20-area kanto-sea-route-20-area">20</div>
+          <div class="p-9"></div>
+          <div class="p-10"></div>
+          <div class="p-11"></div>
+          <div class="p-12"></div>
+          <div class="p-13"></div>
+          <div class="p-14"></div>
+          <div class="p-15"></div>
+          <div class="p-16"></div>
+        </div>
       </section>
     </main>
-
-    <footer>
-      <div class="foot-tainer">
-        <p>Tiny project from Tom Andre Iversen || Noroff student</p>
-      </div>
-    </footer>
-
-    <script src="../js/details.js" type="module"></script>
+    <footer></footer>
+    <script src="./kanto-single.js" type="module"></script>
   </body>
 </html>

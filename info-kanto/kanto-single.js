@@ -1,33 +1,36 @@
 import { fetchPokemonList, pokeSprite } from "../Utility js/export-fetch.js";
 
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
-const johtoLimit = "?limit=100&offset=151"
-const FULL_JOHTO_LIMIT = BASE_URL + johtoLimit
+const kantoLimit = "?limit=151"
+const FULL_KANTO_LIMIT = BASE_URL + kantoLimit
+let kantoPokemon = await fetchPokemonList(FULL_KANTO_LIMIT)
 
-let johtoPokemon = await fetchPokemonList(FULL_JOHTO_LIMIT)
-
-let allJohtoMons = johtoPokemon.results
-
-console.log("oadah", johtoPokemon);
+let allKantoMons = kantoPokemon.results
 
 const documentJohto = document.getElementById("pokemon-carousel")
+
+const params = window.location.search
+const urlSearchParams = new URLSearchParams(params)
+const pokeindex = urlSearchParams.get("pokeindex")
+
 
 let currentPokemon = 1;
 let currentPosition = 0; 
 const cardWidth = 160;
 const gap = 16;
 const distanceToMove = cardWidth + gap;
+if(pokeindex){
 
-// if(pokeindex){
-//     currentPokemon = pokeindex
-// }
+    currentPokemon = pokeindex
+}
 
 const starterPokemon = await displayCurrent(currentPokemon)
+console.log("asiodjaoid", starterPokemon);
 if(starterPokemon){
     abilities(starterPokemon)
     renderHtml(starterPokemon)
-    // await markPokemonOnMap(starterPokemon)
-    /pokeType(starterPokemon)
+    await markPokemonOnMap(starterPokemon)
+    pokeType(starterPokemon)
 }
 
 let timeout;
@@ -104,57 +107,57 @@ async function goToPokemon() {
     const pokemonData = await displayCurrent(currentPokemon);
     abilities(pokemonData);
     renderHtml(pokemonData);
-    // await markPokemonOnMap(pokemonData);
+    await markPokemonOnMap(pokemonData);
     pokeType(pokemonData);
 
 }
 
-
-///////////////////// Display of Johto mons
+//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////// Display of Johto mons
 let min = 0;
-let max = 100;
+let max = 151;
 
-async function allJohtoOnDisplay() {
+async function allKantoOnDisplay() {
     documentJohto.innerHTML = ""; 
   
     for (let i = min; i < max; i++) {
-      const pokemonURL = allJohtoMons[i].url;
+      const pokemonURL = allKantoMons[i].url;
       const { sprite } = await pokeSprite(pokemonURL);
   
       const pokecard = document.createElement("div");
       pokecard.classList.add("pokecard");
-      pokecard.dataset.url = allJohtoMons[i].url
+      pokecard.dataset.url = allKantoMons[i].url
   
       const indexSpan = document.createElement("span");
       indexSpan.classList.add("index");
-      indexSpan.textContent = i + 152;
+      indexSpan.textContent = i + 1;
       pokecard.appendChild(indexSpan);
   
       const img = document.createElement("img");
       img.src = sprite;
-      img.alt = allJohtoMons[i].name;
+      img.alt = allKantoMons[i].name;
       pokecard.appendChild(img);
   
       const namePara = document.createElement("p");
-      namePara.textContent = allJohtoMons[i].name;
+      namePara.textContent = allKantoMons[i].name;
       pokecard.appendChild(namePara);
   
       documentJohto.appendChild(pokecard);
   
-      let cards = document.querySelectorAll(`.${allJohtoMons[i].name}`);
+      let cards = document.querySelectorAll(`.${allKantoMons[i].name}`);
       cards.forEach(card => {
         card.style.backgroundColor = "white";
       });
     }
   }
-  allJohtoOnDisplay();
-
+  allKantoOnDisplay();
 
   //////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////
+
   async function displayCurrent(pokeid){
 
-    const urlJohto = `https://pokeapi.co/api/v2/pokemon/${pokeid +151}`
+    const urlJohto = `https://pokeapi.co/api/v2/pokemon/${pokeid}`
     try {
 
         const req = await fetch(urlJohto)
@@ -241,3 +244,93 @@ function pokeType(obj){
         `;
     }
 }
+
+//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////// POKEMON LOCATION ON MAP
+async function markPokemonOnMap(obj){
+
+    const locationURL = `https://pokeapi.co/api/v2/pokemon/${obj.id}/encounters`
+
+    const req = await fetch(locationURL)
+
+    const res = await req.json()    
+
+    const kantoLocations = res.filter(el => el.version_details.some(v => v.version["name"] === "red" || v.version["name"] === "blue"))
+    
+    console.log("locations", kantoLocations);
+
+    const allMapDivs = document.querySelectorAll("#locations div div");
+    allMapDivs.forEach(div => {
+        div.classList.remove("targetAquired", "targetLegendary");
+    });
+    if (kantoLocations.length > 0) {
+    kantoLocations.forEach( l => {        
+
+        let route = l.location_area.name
+        let safari = "safari-zone"
+        let ceruleanCave = "cerulean-cave"
+        let mtMoon = "mt-moon"
+        let victoryRoad = "victory-road"
+        let rockTunnel = "rock-tunnel"
+        let seafoamIslands = "seafoam-islands"
+        let pokeMansion = "pokemon-mansion"
+        let pokeTower = "pokemon-tower"
+
+         if(route.includes(pokeTower)){
+                route = pokeTower
+        }
+
+        if(route.includes(pokeMansion)){
+                route = pokeMansion
+        }
+
+        if(route.includes(victoryRoad)){
+                route = victoryRoad
+        }
+
+        if(route.includes(rockTunnel)){
+                route = rockTunnel
+        }
+
+        if(route.includes(seafoamIslands)){
+                route = seafoamIslands
+        }
+
+        if(route.includes(safari)){
+                route = safari
+        }
+
+        if(route.includes(mtMoon)){
+                route = mtMoon
+        }
+
+        if(route.includes(ceruleanCave)){
+                route = ceruleanCave
+        }
+
+        console.log(route);
+        let target = document.querySelectorAll(`.${route}`);
+            
+            
+         const legendaryIndex = [
+                "144", "145", "146", "150", "151" 
+        ]
+
+        if(target && legendaryIndex.find(p => p === obj)){
+                target.forEach(div => {
+
+                    div.classList.add("targetLegendary")
+
+                })
+
+        }else{
+                target.forEach(div => {
+
+                    div.classList.add("targetAquired")
+
+            })
+        }
+        })
+    }
+}
+

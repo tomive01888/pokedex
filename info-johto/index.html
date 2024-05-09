@@ -12,32 +12,49 @@
   <body>
     <header>
       <a href="../index.html" class="goHome">Go home</a>
+      <a href="../info-kanto/index.html">Go Kanto</a>
     </header>
     <main>
-      <section>
-        <div id="navigation">
-          <button id="prev5">-5</button>
-          <button id="prev1">-1</button>
-          <button id="next1">+1</button>
-          <button id="next5">+5</button>
-        </div>
-        <div id="pokemon-carousel"></div>
-        <div id="pokemonDetails">
-          <p>Click a pokemon to display it's information</p>
-        </div>
+      <div class="overlay1"></div>
+      <div class="overlay2"></div>
 
+      <section id="mainbox">
+        <span class="target"></span>
+        <div id="pokemon-carousel"></div>
       </section>
 
-      <section id="locations"></section>
+      <div class="buttons">
+        <button class="goToStart">&#xab;</button>
+        <button class="goMinus10">&#x2039;-10</button>
+        <button class="previous">&#x2039;-1</button>
 
-      <section id="map"></section>   
+        <button class="next">+1&#x203A;</button>
+        <button class="goPlus10">+10&#x203A;</button>
+        <button class="goToEnd">&#xbb;</button>
+      </div>
+
+      <div id="pokemonDetails">
+        <span id="pokeId"></span>
+        <div id="pokeImg"></div>
+        <div id="pokeInfo">
+          <div id="pokeContent"></div>
+          <section id="type-tainer">
+            <p>Type:</p>
+            <div class="type"></div>
+          </section>
+          <section id="abilities"></section>
+         
+        </div>
+        </div>
+      </div>
+     
+
+      <!-- <section id="locations"></section> -->
+
+      <!-- <section id="map"></section>    -->
       </section>
     </main>
     <footer></footer>
     <script src="./johto-single.js" type="module"></script>
   </body>
-</html>
-
-<div>
-  <img src="" alt="" />
-</div>
+  </html>

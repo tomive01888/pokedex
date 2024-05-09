@@ -247,6 +247,5 @@ async function markPokemonOnMap(){
     })
 
 }
-
 markPokemonOnMap()
 
