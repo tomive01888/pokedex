@@ -12,12 +12,24 @@ body {
 
 }
 
+
 header {
+    width: 100%;
+    max-width: 50rem;
     min-height: 10vh;
+
+    margin: 0 auto;
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 4rem;
+
+    a {
+        color: yellow;
+        text-decoration: none;
+    }
 }
 
 main {

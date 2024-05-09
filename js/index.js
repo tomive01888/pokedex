@@ -1,7 +1,6 @@
 import  API from "../assets/api.json" with {type: 'json'}
 
 const pokeFolder = document.querySelector("#pokelist")
-// const pokemon =  await fetchGenerationOne()
 const search = document.getElementById("search")
 
 const allPokemons = API.API
@@ -10,18 +9,19 @@ if(allPokemons.length > 0){
 
     for( let i = 0; i <allPokemons.length; i++){           
 
-        pokeFolder.innerHTML += `<a class="pokecard ${allPokemons[i].name}" href="./info-kanto/index.html?pokeindex=${i+1}">
-                                    <span class="index">${i+1} </span>
-                                    <img src="${allPokemons[i].sprite}" alt="${allPokemons[i].name}">
-                                    <p>${allPokemons[i].name}</p>
-                                </a>`;
+        pokeFolder.innerHTML += `
+        <a class="pokecard ${allPokemons[i].name}" href="./info-All/index.html?pokeindex=${i+1}">
+            <span class="index">${i+1} </span>
+            <img src="${allPokemons[i].sprite}" alt="${allPokemons[i].name}">
+            <p>${allPokemons[i].name}</p>
+        </a>
+        `;
 
         let cards = document.querySelectorAll(`.${allPokemons[i].name}`)
         cards.forEach(card => {
-            card.style.backgroundColor = "white"
+            card.style.backgroundColor = "white";
             
-        });  
-
+        });
     }
 
     search.addEventListener('keyup', searchPokemon)
