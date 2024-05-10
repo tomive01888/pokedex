@@ -1,5 +1,25 @@
 import { fetchGenerationOne } from "./fetchAPI.js"
 
+window.onload = function() {
+    // Check if this is the first entry
+    if (!localStorage.getItem("pokeIndexAdded")) {
+        // Get the current URL
+        var currentUrl = window.location.href;
+
+        // Check if the string is already present in the URL
+        if (currentUrl.indexOf("?pokeindex=1") === -1) {
+            // Add the string to the URL
+            var modifiedUrl = currentUrl + "?pokeindex=1";
+
+            // Redirect to the modified URL
+            window.location.href = modifiedUrl;
+
+            // Set a flag indicating that the string has been added
+            localStorage.setItem("pokeIndexAdded", "true");
+        }
+    }
+};
+
 const heading = document.querySelector("h1")
 
 const params = window.location.search
@@ -11,7 +31,7 @@ const image2 = document.getElementById("image2")
 
 if(parseInt(pokeindex) < 1 || parseInt(pokeindex) > 251) {
     window.location.href = "./index.html?pokeindex=1";
-    alert("The pokemon you tried to enter is not part of the Kanto dex")
+    alert("The pokemon you tried to enter is not part of the Gen 1 and Gen 2 dex")
 } else {
    
 }

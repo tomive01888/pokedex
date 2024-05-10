@@ -34,49 +34,20 @@ if(allPokemons.length > 0){
 
     search.addEventListener('keyup', searchPokemon)
 
-    function searchPokemon(event){ 
-        const searchQuery = event.target.value.trim().toLowerCase()
-
-        for( let i = 0; i <allPokemons.length; i++){
-
-            let card = document.querySelector(`.${allPokemons[i].name}`)                
-            card.style.backgroundColor = "white"
-            card.style.filter =  "";
-            card.style.opacity =  "";           
-        }
-
-        if(searchQuery === ""){      
-              
-            return
-        }        
+    function searchPokemon(event) {
+        const searchQuery = event.target.value.trim().toLowerCase();
     
-        const matches = allPokemons.filter((s)=> s.name.toLowerCase().startsWith(searchQuery))
-        const doesNotMatch = allPokemons.filter((s)=> !s.name.toLowerCase().startsWith(searchQuery))
-
-   
-        if(doesNotMatch.length){
-
-            for( let i = 0; i < doesNotMatch.length; i++){    
-                let element = document.querySelector(`.${doesNotMatch[i].name}`)                            
-                element.style.filter =  "grayscale(100%)";
-                element.style.opacity = "0.6";
+        for (let i = 0; i < allPokemons.length; i++) {
+            let card = document.querySelector(`.${allPokemons[i].name}`);
     
-            }
-        }
-
-
-        console.log(doesNotMatch);
-      
-        if(matches.length){
-
-            
-
-            for( let i = 0; i < matches.length; i++){
-
-                let element = document.querySelector(`.${matches[i].name}`)                
-                element.style.backgroundColor = ""
-                element.style.backgroundColor = "white"
-    
+            if (searchQuery === "") {
+                card.style.display = "";
+            } else {
+                if (allPokemons[i].name.toLowerCase().startsWith(searchQuery)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
             }
         }
     }    

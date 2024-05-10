@@ -212,3 +212,7 @@ h1 {
     padding: 3px 10px;
 
 }
+
+.hidden {
+    display: none;
+}
