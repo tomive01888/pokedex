@@ -1,0 +1,14 @@
+audio::-webkit-media-controls-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-rewind-button,
+audio::-webkit-media-controls-fast-forward-button {
+    display: none !important;
+}

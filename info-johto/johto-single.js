@@ -26,7 +26,7 @@ const starterPokemon = await displayCurrent(currentPokemon)
 if(starterPokemon){
     abilities(starterPokemon)
     renderHtml(starterPokemon)
-    // await markPokemonOnMap(starterPokemon)
+    await markPokemonOnMap(starterPokemon)
     /pokeType(starterPokemon)
 }
 
@@ -93,8 +93,8 @@ function onGoToStartClick() {
 }
 function onGoToEndClick() {
     clearTimeout(timeout);
-    currentPokemon = 151; 
-    currentPosition = (151 - 1) * distanceToMove; 
+    currentPokemon = 100; 
+    currentPosition = (100 - 1) * distanceToMove; 
     documentJohto.style.transform = `translateX(${-currentPosition}px)`;
     timeout = setTimeout(goToPokemon, 1200);
 }
@@ -104,7 +104,7 @@ async function goToPokemon() {
     const pokemonData = await displayCurrent(currentPokemon);
     abilities(pokemonData);
     renderHtml(pokemonData);
-    // await markPokemonOnMap(pokemonData);
+    await markPokemonOnMap(pokemonData);
     pokeType(pokemonData);
 
 }
@@ -242,27 +242,94 @@ function pokeType(obj){
     }
 }
 
-const numRows = 13;
-const numCols = 20;
+//////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////// Encounter
+async function markPokemonOnMap(obj){
 
-const rowLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'];
+    const locationURL = `https://pokeapi.co/api/v2/pokemon/${obj.id}/encounters`
 
-const locationSection = document.querySelector('#locations');
+    const req = await fetch(locationURL)
 
-let html = '';
+    const res = await req.json()    
 
-for (let i = 0; i < numRows; i++) {
-    html += '<div>';
+    const johtoLocations = res.filter(el => el.version_details.some(v => v.version["name"] === "gold" || v.version["name"] === "silver" || v.version["name"] === "crystal"))
+    
+    console.log("locations", johtoLocations);
 
-    for (let j = 0; j < numCols; j++) {
-        const rowLetter = rowLetters[i];
+    const allMapDivs = document.querySelectorAll("#map div div");
+    allMapDivs.forEach(div => {
+        div.classList.remove("targetAquired", "targetLegendary");
+    });
+    if (johtoLocations.length > 0) {
+    johtoLocations.forEach( l => {        
 
-        const className = `${rowLetter.toLowerCase()}-${j + 1}`;
+            let route = l.location_area.name
+            let mtMortar = "mt-mortar"
+            let unionCave = "union-cave"
+            let mtSilver = "mt-silver"
+            let alphRuinsInterior = "ruins-of-alph-interior"
+            let cianwoodCity = "cianwood-city"
+            let darkCave = "dark-cave"
+            let bellTower = "bell-tower"
+            let whirlIslands = "whirl-islands"
+            let icePath = "ice-path"
 
-        html += `<div class="${className}"><span id="${rowLetter}-${j + 1}"></span></div>`;
+            if(route.includes(icePath)){
+                     route = icePath
+            }
+
+            if(route.includes(mtMortar)){
+                     route = mtMortar
+            }
+
+            if(route.includes(unionCave)){
+                    route = unionCave
+            }
+
+            if(route.includes(mtSilver)){
+                    route = mtSilver
+            }
+
+            if(route.includes(alphRuinsInterior)){
+                    route = alphRuinsInterior
+            }
+
+            if(route.includes(cianwoodCity)){
+                    route = cianwoodCity
+            }
+
+            if(route.includes(darkCave)){
+                    route = darkCave
+            }
+
+            if(route.includes(bellTower)){
+                    route = bellTower
+            }
+
+            if(route.includes(whirlIslands)){
+                     route = whirlIslands
+            }
+
+            console.log(route);
+            let target = document.querySelectorAll(`.${route}`);
+                
+                
+            const legendaryIndex = ["249", "250", "251"]
+
+            if(target && legendaryIndex.find(p => p === obj)){
+                    target.forEach(div => {
+
+                        div.classList.add("targetLegendary")
+
+                    })
+
+            }else{
+                    target.forEach(div => {
+
+                        div.classList.add("targetAquired")
+
+                })
+            }
+        })
     }
-
-    html += '</div>';
 }
-
-locationSection.innerHTML = html;
